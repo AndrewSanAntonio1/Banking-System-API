@@ -1,184 +1,286 @@
-.counter {
-  font-size: 16px;
-  padding: 5px 10px;
-  border-radius: 5px;
-  color: var(--accent);
-  background: var(--accent-bg);
-  border: 2px solid transparent;
-  transition: border-color 0.3s;
-  margin-bottom: 24px;
+/* Banking System App Styles */
 
-  &:hover {
-    border-color: var(--accent-border);
-  }
-  &:focus-visible {
-    outline: 2px solid var(--accent);
-    outline-offset: 2px;
-  }
-}
-
-.hero {
-  position: relative;
-
-  .base,
-  .framework,
-  .vite {
-    inset-inline: 0;
-    margin: 0 auto;
-  }
-
-  .base {
-    width: 170px;
-    position: relative;
-    z-index: 0;
-  }
-
-  .framework,
-  .vite {
-    position: absolute;
-  }
-
-  .framework {
-    z-index: 1;
-    top: 34px;
-    height: 28px;
-    transform: perspective(2000px) rotateZ(300deg) rotateX(44deg) rotateY(39deg)
-      scale(1.4);
-  }
-
-  .vite {
-    z-index: 0;
-    top: 107px;
-    height: 26px;
-    width: auto;
-    transform: perspective(2000px) rotateZ(300deg) rotateX(40deg) rotateY(39deg)
-      scale(0.8);
-  }
-}
-
-#center {
-  display: flex;
-  flex-direction: column;
-  gap: 25px;
-  place-content: center;
-  place-items: center;
-  flex-grow: 1;
-
-  @media (max-width: 1024px) {
-    padding: 32px 20px 24px;
-    gap: 18px;
-  }
-}
-
-#next-steps {
-  display: flex;
-  border-top: 1px solid var(--border);
-  text-align: left;
-
-  & > div {
-    flex: 1 1 0;
-    padding: 32px;
-    @media (max-width: 1024px) {
-      padding: 24px 20px;
-    }
-  }
-
-  .icon {
-    margin-bottom: 16px;
-    width: 22px;
-    height: 22px;
-  }
-
-  @media (max-width: 1024px) {
-    flex-direction: column;
-    text-align: center;
-  }
-}
-
-#docs {
-  border-right: 1px solid var(--border);
-
-  @media (max-width: 1024px) {
-    border-right: none;
-    border-bottom: 1px solid var(--border);
-  }
-}
-
-#next-steps ul {
+/* Sidebar Navigation */
+.sidebar-nav {
   list-style: none;
   padding: 0;
+  margin: 0;
+}
+
+.sidebar-nav .nav-link {
   display: flex;
-  gap: 8px;
-  margin: 32px 0 0;
-
-  .logo {
-    height: 18px;
-  }
-
-  a {
-    color: var(--text-h);
-    font-size: 16px;
-    border-radius: 6px;
-    background: var(--social-bg);
-    display: flex;
-    padding: 6px 12px;
-    align-items: center;
-    gap: 8px;
-    text-decoration: none;
-    transition: box-shadow 0.3s;
-
-    &:hover {
-      box-shadow: var(--shadow);
-    }
-    .button-icon {
-      height: 18px;
-      width: 18px;
-    }
-  }
-
-  @media (max-width: 1024px) {
-    margin-top: 20px;
-    flex-wrap: wrap;
-    justify-content: center;
-
-    li {
-      flex: 1 1 calc(50% - 8px);
-    }
-
-    a {
-      width: 100%;
-      justify-content: center;
-      box-sizing: border-box;
-    }
-  }
+  align-items: center;
+  padding: 0.75rem 1.5rem;
+  color: var(--text);
+  text-decoration: none;
+  transition: all 0.2s ease;
+  border-left: 3px solid transparent;
 }
 
-#spacer {
-  height: 88px;
-  border-top: 1px solid var(--border);
-  @media (max-width: 1024px) {
-    height: 48px;
-  }
+.sidebar-nav .nav-link:hover {
+  background-color: var(--bg-secondary);
+  color: var(--primary-color);
 }
 
-.ticks {
+.sidebar-nav .nav-link.active {
+  background-color: rgba(13, 110, 253, 0.1);
+  color: var(--primary-color);
+  border-left-color: var(--primary-color);
+  font-weight: 600;
+}
+
+.sidebar-nav .nav-link i {
+  margin-right: 0.75rem;
+  font-size: 1.25rem;
+}
+
+/* Dashboard Cards */
+.stat-card {
+  background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%);
+  color: white;
+  border: none;
+  border-radius: 0.75rem;
+  overflow: hidden;
   position: relative;
+}
+
+.stat-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100px;
+  height: 100px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  transform: translate(30%, -30%);
+}
+
+.stat-card .card-body {
+  position: relative;
+  z-index: 1;
+}
+
+.stat-card .stat-icon {
+  font-size: 2.5rem;
+  opacity: 0.3;
+  position: absolute;
+  right: 1rem;
+  bottom: 1rem;
+}
+
+.balance-card {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+.transaction-card {
+  background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+}
+
+.quick-action-card {
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: 2px solid var(--border);
+  text-align: center;
+}
+
+.quick-action-card:hover {
+  transform: translateY(-5px);
+  border-color: var(--primary-color);
+  box-shadow: var(--shadow-lg);
+}
+
+.quick-action-card .icon {
+  font-size: 3rem;
+  color: var(--primary-color);
+  margin-bottom: 1rem;
+}
+
+/* Transaction Table */
+.transaction-table {
+  background-color: var(--bg);
+  border-radius: 0.5rem;
+  overflow: hidden;
+}
+
+.transaction-table th {
+  background-color: var(--bg-secondary);
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 0.875rem;
+  letter-spacing: 0.5px;
+}
+
+.transaction-row {
+  transition: background-color 0.2s ease;
+}
+
+.transaction-row:hover {
+  background-color: var(--bg-secondary);
+}
+
+/* Breadcrumb */
+.breadcrumb {
+  background-color: transparent;
+  padding: 0.75rem 0;
+  margin-bottom: 1rem;
+}
+
+.breadcrumb-item + .breadcrumb-item::before {
+  content: '›';
+  color: var(--text-muted);
+}
+
+/* Profile Dropdown */
+.profile-dropdown {
+  min-width: 250px;
+}
+
+.profile-dropdown .dropdown-header {
+  padding: 1rem;
+  background-color: var(--bg-secondary);
+  font-weight: 600;
+}
+
+.profile-dropdown .dropdown-item {
+  padding: 0.75rem 1rem;
+  transition: background-color 0.2s ease;
+}
+
+.profile-dropdown .dropdown-item:hover {
+  background-color: var(--bg-secondary);
+}
+
+/* Modal Enhancements */
+.modal-content {
+  border: none;
+  border-radius: 0.75rem;
+  box-shadow: var(--shadow-lg);
+}
+
+.modal-header {
+  background-color: var(--bg-secondary);
+  border-top-left-radius: 0.75rem;
+  border-top-right-radius: 0.75rem;
+  padding: 1.25rem 1.5rem;
+}
+
+.modal-body {
+  padding: 1.5rem;
+}
+
+.modal-footer {
+  padding: 1rem 1.5rem;
+  border-top: 1px solid var(--border);
+}
+
+/* Form Styling */
+.auth-container {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%);
+  padding: 2rem 1rem;
+}
+
+.auth-card {
   width: 100%;
+  max-width: 450px;
+  border-radius: 1rem;
+  box-shadow: var(--shadow-lg);
+}
 
-  &::before,
-  &::after {
-    content: '';
-    position: absolute;
-    top: -4.5px;
-    border: 5px solid transparent;
-  }
+.auth-card .card-header {
+  background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%);
+  color: white;
+  text-align: center;
+  padding: 2rem 1.5rem;
+  border-top-left-radius: 1rem;
+  border-top-right-radius: 1rem;
+}
 
-  &::before {
-    left: 0;
-    border-left-color: var(--border);
+.auth-card .card-body {
+  padding: 2rem 1.5rem;
+}
+
+/* Empty State */
+.empty-state {
+  text-align: center;
+  padding: 3rem 1.5rem;
+  color: var(--text-muted);
+}
+
+.empty-state i {
+  font-size: 4rem;
+  margin-bottom: 1rem;
+  opacity: 0.5;
+}
+
+/* Loading States */
+.skeleton {
+  background: linear-gradient(90deg, var(--bg-tertiary) 25%, var(--bg-secondary) 50%, var(--bg-tertiary) 75%);
+  background-size: 200% 100%;
+  animation: skeleton-loading 1.5s ease-in-out infinite;
+  border-radius: 0.25rem;
+}
+
+@keyframes skeleton-loading {
+  0% {
+    background-position: 200% 0;
   }
-  &::after {
-    right: 0;
-    border-right-color: var(--border);
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+/* Status Indicators */
+.status-indicator {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  margin-right: 0.5rem;
+}
+
+.status-indicator.active {
+  background-color: var(--success-color);
+  box-shadow: 0 0 8px var(--success-color);
+}
+
+.status-indicator.inactive {
+  background-color: var(--secondary-color);
+}
+
+.status-indicator.pending {
+  background-color: var(--warning-color);
+  animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+/* Responsive Typography */
+@media (max-width: 767.98px) {
+  h1 {
+    font-size: 2rem;
+  }
+  
+  h2 {
+    font-size: 1.75rem;
+  }
+  
+  h3 {
+    font-size: 1.5rem;
+  }
+  
+  .content-wrapper {
+    padding: 1rem;
   }
 }

@@ -1,0 +1,35 @@
+{
+  "version": "1.0.0",
+  "enabled": true,
+  "name": "Enterprise Banking System Frontend",
+  "description": "Build a modern, responsive, enterprise-grade online banking frontend using React, Vite, Bootstrap, React Router, Axios, and React Hook Form. The application should provide separate dashboards for Admin and User, featuring a professional banking UI, reusable components, role-based navigation, responsive layouts, and seamless integration with a Spring Boot REST API. Frontend only—no backend implementation.",
+  "when": {
+    "type": "fileCreated",
+    "patterns": [
+      "auth/Login.jsx",
+      "auth/Register.jsx",
+      "auth/ForgotPassword.jsx",
+      "auth/ResetPassword.jsx",
+      "user/Dashboard.jsx",
+      "user/Deposit.jsx",
+      "user/Withdraw.jsx",
+      "user/Transfer.jsx",
+      "user/Transactions.jsx",
+      "user/TransactionDetails.jsx",
+      "user/Beneficiaries.jsx",
+      "user/Profile.jsx",
+      "admin/Dashboard.jsx",
+      "admin/Customers.jsx",
+      "admin/CustomerDetails.jsx",
+      "admin/Accounts.jsx",
+      "admin/Transactions.jsx",
+      "admin/AuditLogs.jsx",
+      "admin/FraudMonitoring.jsx",
+      "admin/Reports.jsx"
+    ]
+  },
+  "then": {
+    "type": "askAgent",
+    "prompt": "Create a production-ready banking frontend that looks and feels like a real online banking application. Focus on clean architecture, reusable React components, responsive design, accessibility, and excellent user experience. Build only the frontend with mock API services and Axios placeholders so it can later connect directly to my Spring Boot REST API without requiring structural changes."
+  }
+}

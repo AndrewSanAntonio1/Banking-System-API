@@ -1,111 +1,217 @@
+/* Banking System Global Styles */
+
 :root {
-  --text: #6b6375;
-  --text-h: #08060d;
-  --bg: #fff;
-  --border: #e5e4e7;
-  --code-bg: #f4f3ec;
-  --accent: #aa3bff;
-  --accent-bg: rgba(170, 59, 255, 0.1);
-  --accent-border: rgba(170, 59, 255, 0.5);
-  --social-bg: rgba(244, 243, 236, 0.5);
-  --shadow:
-    rgba(0, 0, 0, 0.1) 0 10px 15px -3px, rgba(0, 0, 0, 0.05) 0 4px 6px -2px;
-
-  --sans: system-ui, 'Segoe UI', Roboto, sans-serif;
-  --heading: system-ui, 'Segoe UI', Roboto, sans-serif;
-  --mono: ui-monospace, Consolas, monospace;
-
-  font: 18px/145% var(--sans);
-  letter-spacing: 0.18px;
-  color-scheme: light dark;
-  color: var(--text);
-  background: var(--bg);
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-
-  @media (max-width: 1024px) {
-    font-size: 16px;
-  }
+  /* Color Palette */
+  --bs-primary: #0d6efd;
+  --bs-secondary: #6c757d;
+  --bs-success: #198754;
+  --bs-danger: #dc3545;
+  --bs-warning: #ffc107;
+  --bs-info: #0dcaf0;
+  --bs-light: #f8f9fa;
+  --bs-dark: #212529;
+  
+  /* Banking System Colors */
+  --banking-primary: #0d6efd;
+  --banking-secondary: #6c757d;
+  --banking-success: #28a745;
+  --banking-danger: #dc3545;
+  --banking-warning: #ffc107;
+  --banking-info: #17a2b8;
+  --banking-light: #f8f9fa;
+  --banking-dark: #343a40;
+  
+  /* Background Colors */
+  --bg-body: #f8f9fa;
+  --bg-card: #ffffff;
+  --bg-sidebar: #ffffff;
+  --bg-topnav: #ffffff;
+  
+  /* Border Colors */
+  --border-color: #dee2e6;
+  --border-color-light: #e9ecef;
+  
+  /* Text Colors */
+  --text-primary: #212529;
+  --text-secondary: #6c757d;
+  --text-muted: #adb5bd;
+  
+  /* Shadow */
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.08);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.12);
+  
+  /* Typography */
+  --font-family-sans-serif: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  --font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;
+  
+  /* Spacing */
+  --spacing-xs: 0.25rem;
+  --spacing-sm: 0.5rem;
+  --spacing-md: 1rem;
+  --spacing-lg: 1.5rem;
+  --spacing-xl: 2rem;
+  
+  /* Responsive Breakpoints */
+  --breakpoint-xs: 0;
+  --breakpoint-sm: 576px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 992px;
+  --breakpoint-xl: 1200px;
+  --breakpoint-xxl: 1400px;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --text: #9ca3af;
-    --text-h: #f3f4f6;
-    --bg: #16171d;
-    --border: #2e303a;
-    --code-bg: #1f2028;
-    --accent: #c084fc;
-    --accent-bg: rgba(192, 132, 252, 0.15);
-    --accent-border: rgba(192, 132, 252, 0.5);
-    --social-bg: rgba(47, 48, 58, 0.5);
-    --shadow:
-      rgba(0, 0, 0, 0.4) 0 10px 15px -3px, rgba(0, 0, 0, 0.25) 0 4px 6px -2px;
-  }
-
-  #social .button-icon {
-    filter: invert(1) brightness(2);
-  }
+/* Base Styles */
+* {
+  box-sizing: border-box;
 }
 
 body {
   margin: 0;
+  padding: 0;
+  font-family: var(--font-family-sans-serif);
+  font-size: 1rem;
+  line-height: 1.5;
+  color: var(--text-primary);
+  background-color: var(--bg-body);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 #root {
-  width: 1126px;
-  max-width: 100%;
-  margin: 0 auto;
-  text-align: center;
-  border-inline: 1px solid var(--border);
-  min-height: 100svh;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
-  box-sizing: border-box;
 }
 
-h1,
-h2 {
-  font-family: var(--heading);
+/* Typography */
+h1, h2, h3, h4, h5, h6 {
+  margin-top: 0;
+  margin-bottom: 0.5rem;
   font-weight: 500;
-  color: var(--text-h);
+  line-height: 1.2;
+  color: var(--text-primary);
 }
 
-h1 {
-  font-size: 56px;
-  letter-spacing: -1.68px;
-  margin: 32px 0;
-  @media (max-width: 1024px) {
-    font-size: 36px;
-    margin: 20px 0;
-  }
-}
-h2 {
-  font-size: 24px;
-  line-height: 118%;
-  letter-spacing: -0.24px;
-  margin: 0 0 8px;
-  @media (max-width: 1024px) {
-    font-size: 20px;
-  }
-}
+h1 { font-size: 2.5rem; }
+h2 { font-size: 2rem; }
+h3 { font-size: 1.75rem; }
+h4 { font-size: 1.5rem; }
+h5 { font-size: 1.25rem; }
+h6 { font-size: 1rem; }
+
 p {
-  margin: 0;
+  margin-top: 0;
+  margin-bottom: 1rem;
 }
 
-code,
-.counter {
-  font-family: var(--mono);
-  display: inline-flex;
+a {
+  color: var(--bs-primary);
+  text-decoration: none;
+}
+
+a:hover {
+  color: #0a58ca;
+  text-decoration: underline;
+}
+
+/* Utility Classes */
+.text-primary { color: var(--bs-primary) !important; }
+.text-secondary { color: var(--bs-secondary) !important; }
+.text-success { color: var(--bs-success) !important; }
+.text-danger { color: var(--bs-danger) !important; }
+.text-warning { color: var(--bs-warning) !important; }
+.text-info { color: var(--bs-info) !important; }
+.text-muted { color: var(--text-muted) !important; }
+
+.bg-primary { background-color: var(--bs-primary) !important; }
+.bg-light { background-color: var(--bg-body) !important; }
+.bg-white { background-color: #ffffff !important; }
+
+/* Toast notification styles */
+.toast-notification {
+  animation: slideIn 0.3s ease-in-out;
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+/* Toast container responsive adjustments */
+@media (max-width: 768px) {
+  .toast-container {
+    max-width: 100% !important;
+    left: 0;
+    right: 0;
+    padding: 0.75rem !important;
+  }
+}
+
+/* Scrollbar Styles */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-light);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border-color);
   border-radius: 4px;
-  color: var(--text-h);
 }
 
-code {
-  font-size: 15px;
-  line-height: 135%;
-  padding: 4px 8px;
-  background: var(--code-bg);
+::-webkit-scrollbar-thumb:hover {
+  background: var(--text-secondary);
+}
+
+/* Focus Visible (Accessibility) */
+*:focus-visible {
+  outline: 2px solid var(--bs-primary);
+  outline-offset: 2px;
+}
+
+/* Button Focus */
+.btn:focus-visible {
+  box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
+}
+
+/* Responsive Typography */
+@media (max-width: 768px) {
+  h1 { font-size: 2rem; }
+  h2 { font-size: 1.75rem; }
+  h3 { font-size: 1.5rem; }
+  h4 { font-size: 1.25rem; }
+  h5 { font-size: 1.125rem; }
+  h6 { font-size: 1rem; }
+  
+  body {
+    font-size: 0.9375rem;
+  }
+}
+
+/* Print Styles */
+@media print {
+  .sidebar,
+  .top-nav,
+  .btn,
+  .toast-container {
+    display: none !important;
+  }
+  
+  .main-content {
+    margin-left: 0 !important;
+  }
+  
+  body {
+    background-color: white !important;
+  }
 }
